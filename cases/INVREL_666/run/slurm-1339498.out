@@ -1,0 +1,33 @@
+received from SLURM HECACC=n02-NES010475,IMGNAME=julia_container_v1_6.img,JDEPOT=/work/n02/n02/aleey/wavi/WAVIhpc/.julia,JOBNO=666,TIMEQSTART=1648474604
+Starting to make the modelAbout to make simulationThe simulation is mademaking temporary checkpoint at timestep number 1
+making permanent checkpoint at timestep number 1
+outputting at timestep number 1
+making temporary checkpoint at timestep number 2
+making permanent checkpoint at timestep number 2
+outputting at timestep number 2
+making temporary checkpoint at timestep number 3
+making permanent checkpoint at timestep number 3
+outputting at timestep number 3
+making temporary checkpoint at timestep number 4
+making permanent checkpoint at timestep number 4
+outputting at timestep number 4
+making temporary checkpoint at timestep number 5
+making permanent checkpoint at timestep number 5
+outputting at timestep number 5
+making temporary checkpoint at timestep number 6
+making permanent checkpoint at timestep number 6
+outputting at timestep number 6
+making temporary checkpoint at timestep number 7
+making permanent checkpoint at timestep number 7
+outputting at timestep number 7
+making temporary checkpoint at timestep number 8
+making permanent checkpoint at timestep number 8
+outputting at timestep number 8
+making temporary checkpoint at timestep number 9
+making permanent checkpoint at timestep number 9
+outputting at timestep number 9
+making temporary checkpoint at timestep number 10
+making permanent checkpoint at timestep number 10
+outputting at timestep number 10
+The simulation has been runjob chain: leave_time activated, exit code 0
+job chain: finished
