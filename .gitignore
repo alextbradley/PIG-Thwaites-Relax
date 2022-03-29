@@ -1,6 +1,6 @@
 **/src
 *.img
-*.mat
+#*.mat
 *.jld2
 *.DS_Store
 *.bin
