@@ -3,5 +3,5 @@
 #*.mat
 *.jld2
 *.DS_Store
-*.bin
+cases/*.bin
 *.nc
