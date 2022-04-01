@@ -56,13 +56,15 @@ title('evolution of grounded volume');
 % between timesteps
 norm_vel_diff = nan(1,lt);
 figure(2); clf;
-for i = 2:lt
+for i = 2:5:lt
     
     u = (squeeze(sol.u(:,:,i)));
     v = (squeeze(sol.v(:,:,i)));
     grfrac = squeeze(sol.grfrac(:,:,i));
     uu = sqrt(u.^2 + v.^2);
     uu_diff = uu- sqrt((squeeze(sol.u(:,:,i-1))).^2 + (squeeze(sol.v(:,:,i-1))).^2);
+    hh =  (squeeze(sol.h(:,:,i)));
+    hh_diff = hh - (squeeze(sol.h(:,:,i-1)));
     
     %remove non-mask entries
     h_mask = sol.h_mask;
@@ -72,6 +74,8 @@ for i = 2:lt
     v(not_mask) = nan;
     uu(not_mask) = nan;
     uu_diff(not_mask) = nan;
+    hh(not_mask) = nan;
+    hh_diff(not_mask) = nan;
     norm_vel_diff(i) = mean(mean(uu_diff(~not_mask))); %mean of non nan entries
 
     %h_mask(h_mask == 0) = nan;
@@ -80,11 +84,13 @@ for i = 2:lt
     uu = saturate(uu, 2000*1.1, -2000);
     sv = 100;
     uu_diff = saturate(uu_diff, sv*1.1, -sv);
+    hh = saturate(hh, 3000, 0);
+    hh_diff = saturate(hh_diff, 5, 0);
+
     
-    
-    %First panel
+    %First row: velocities
     clf;
-    subplot(1,2,1); title(['t = ' num2str(sol.t(i))])
+    subplot(2,2,1); title(['t = ' num2str(sol.t(i))])
     hold on; box on
     contourf(sol.x, sol.y, uu, 20, 'linestyle', 'none');
     ax1 = gca; colormap(ax1, 'parula')
@@ -95,8 +101,8 @@ for i = 2:lt
     ax2.Position = ax1.Position;
     ax2.Visible = 'off';
     
-    %Second panel
-    subplot(1,2,2);    title(['t = ' num2str(sol.t(i))])
+    %Second panel: velocity difference between timesteps
+    subplot(2,2,2);    title(['t = ' num2str(sol.t(i))])
     hold on; box on
     contourf(sol.x, sol.y, uu_diff, 20, 'linestyle', 'none');
     ax3 = gca; colormap(ax3, redblue)
@@ -108,6 +114,28 @@ for i = 2:lt
     ax4.Position = ax3.Position;
     ax4.Position = ax3.Position;
     
+    % Second row: ice thicness
+    subplot(2,2,3);
+    hold on; box on
+    contourf(sol.x, sol.y, hh, 20, 'linestyle', 'none');
+    ax5 = gca; colormap(ax5, 'parula')
+    c = colorbar; c.Label.String = 'ice thickness';
+    %add ice mask contour
+    ax6 = axes;
+    contour(sol.x, sol.y, h_mask, [0.5, 0.5],'k')
+    ax6.Position = ax1.Position;
+    ax6.Visible = 'off';
+    
+    subplot(2,2,4);    title(['t = ' num2str(sol.t(i))])
+    hold on; box on
+    contourf(sol.x, sol.y, hh_diff, 20, 'linestyle', 'none');
+    ax7 = gca; colormap(ax7, parula)
+    c = colorbar; c.Label.String = 'ice velocity difference';
+    %add ice mask contour
+    ax8 = axes;
+    contour(sol.x, sol.y, h_mask, [0.5, 0.5],'k')
+    ax8.Visible = 'off';
+    ax8.Position = ax7.Position;
 
     drawnow
     %pause
