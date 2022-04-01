@@ -4,12 +4,15 @@
 % output interpolated binary files at the specified resolution. Currently
 % produces output files for 
 % - thickness
+% - u velocity
+% - v velocity
+% [- viscosity]
 
 %% Inputs: specify input resolution, case number, output resolution, time pt
 input_res = "3km";
 output_res = "2km";
 case_number = "001"; %contains the info on the initial state of this run
-timestep_of_input = 5000;
+timestep_of_input = 7000;
 
 %% define grids for 1km, 2km, 3km resolutions
 %3km
@@ -94,23 +97,72 @@ for i = 1:grid_out.nx
         h_out(i,j) = Fh(grid_out.xx(i), grid_out.yy(j));
     end
 end
-%h_out = Fh(grid_out.XX, grid_out.YY);
-%h_out = reshape(h_out, [grid_out.nx, grid_out.ny]);
-fname_out = strcat(folder_out, "/thickness_", folder_out, ".bin");
-fid = fopen(fname_out, 'w', 'b');
+fname_outh = strcat(folder_out, "/thickness_", folder_out, ".bin");
+fid = fopen(fname_outh, 'w', 'b');
 fwrite(fid, h_out, 'real*8');
-%clf; contourf(h_out); shg
+
+% u velocity
+gu = (input.u); gu = gu(:);
+Fu = scatteredInterpolant(gx,gy,gu);
+u_out = zeros(grid_out.nx, grid_out.ny);
+for i = 1:grid_out.nx
+    for j = 1:grid_out.ny
+        u_out(i,j) = Fu(grid_out.xx(i), grid_out.yy(j));
+    end
+end
+fname_outu = strcat(folder_out, "/uvel_", folder_out, ".bin");
+fid = fopen(fname_outu, 'w', 'b');
+fwrite(fid, u_out, 'real*8');
+
+% v velocity
+gv = (input.v); gv = gv(:);
+Fv = scatteredInterpolant(gx,gy,gv);
+v_out = zeros(grid_out.nx, grid_out.ny);
+for i = 1:grid_out.nx
+    for j = 1:grid_out.ny
+        v_out(i,j) = Fv(grid_out.xx(i), grid_out.yy(j));
+    end
+end
+fname_outv = strcat(folder_out, "/vvel_", folder_out, ".bin");
+fid = fopen(fname_outv, 'w', 'b');
+fwrite(fid, v_out, 'real*8');
+
+
 %% reload solution and compare interpolated
 figure(1); clf; 
-%input thickness
-subplot(1,2,1); contourf(grid_in.XX, grid_in.YY, (input.h)', 20, 'linestyle', 'none')
+
+%
+%thickness
+%
+%input
+subplot(2,2,1); contourf(grid_in.XX, grid_in.YY, (saturate((input.h),4000, 0))', 20, 'linestyle', 'none')
 c = colorbar;
 title(strcat("input: thickness at ", input_res))
 
-%interpolated thickness
-fid = fopen(fname_out); hh = fread(fid, 'real*8', 'b'); hh = reshape(hh, [grid_out.nx, grid_out.ny]);
-subplot(1,2,2); contourf(grid_out.XX, grid_out.YY, (hh)', 20, 'linestyle', 'none')
+%interpolated
+fid = fopen(fname_outh); hh = fread(fid, 'real*8', 'b'); hh = reshape(hh, [grid_out.nx, grid_out.ny]);
+subplot(2,2,2); contourf(grid_out.XX, grid_out.YY, (saturate((hh),4000, 0))', 20, 'linestyle', 'none')
 c = colorbar;
 title(strcat("output: interpolated thickness at ", output_res))
+
+
+%
+% velocity
+%
+%input
+invel = sqrt((input.u).^2 + (input.v).^2);
+subplot(2,2,3); contourf(grid_in.XX, grid_in.YY, (saturate(invel, 3000, 0))', 20, 'linestyle', 'none')
+c = colorbar;
+title(strcat("input: velocity at ", input_res))
+
+%interpolated
+fid = fopen(fname_outu); uu = fread(fid, 'real*8', 'b'); uu = reshape(uu, [grid_out.nx, grid_out.ny]);
+fid = fopen(fname_outv); vv = fread(fid, 'real*8', 'b'); vv = reshape(vv, [grid_out.nx, grid_out.ny]);
+interpvel = sqrt((uu).^2 + (vv).^2);
+subplot(2,2,4); contourf(grid_out.XX, grid_out.YY, (saturate((interpvel), 3000, 0))', 20, 'linestyle', 'none')
+c = colorbar;
+title(strcat("output: interpolated velocity at ", output_res))
+
+
 
 
