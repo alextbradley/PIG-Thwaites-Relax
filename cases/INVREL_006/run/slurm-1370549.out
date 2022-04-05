@@ -1,0 +1,122 @@
+expr: syntax error: missing argument after ‘-’
+received from SLURM HECACC=n02-NES010475,IMGNAME=julia_container_v1_6.img,JDEPOT=/work/n02/n02/aleey/wavi/WAVIhpc/.julia,JOBNO=006,TIMEQSTART=
+
+signal (15): Terminated
+in expression starting at /mnt/lustre/a2fs-work2/work/n02/n02/aleey/wavi/WAVIhpc/cases/PIG-Thwaites-Relax/cases/INVREL_006/run/driver.jl:186
+_broadcast_zeropres! at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.6/SparseArrays/src/higherorderfns.jl:603
+_diffshape_broadcast at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.6/SparseArrays/src/higherorderfns.jl:195
+_copy at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.6/SparseArrays/src/higherorderfns.jl:1017 [inlined]
+copy at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.6/SparseArrays/src/higherorderfns.jl:1132 [inlined]
+materialize at ./broadcast.jl:883 [inlined]
+get_rhs at /opt/julia/packages/WAVI/us1O6/src/Models/update_velocities.jl:81
+update_velocities! at /opt/julia/packages/WAVI/us1O6/src/Models/update_velocities.jl:13
+update_model_velocities! at /opt/julia/packages/WAVI/us1O6/src/Models/update_state.jl:155 [inlined]
+update_state! at /opt/julia/packages/WAVI/us1O6/src/Models/update_state.jl:16
+timestep! at /opt/julia/packages/WAVI/us1O6/src/Simulations/run_simulation.jl:8 [inlined]
+run_simulation! at /opt/julia/packages/WAVI/us1O6/src/Simulations/run_simulation.jl:64
+driver at /mnt/lustre/a2fs-work2/work/n02/n02/aleey/wavi/WAVIhpc/cases/PIG-Thwaites-Relax/cases/INVREL_006/run/driver.jl:179
+unknown function (ip: 0x2aeb8375199c)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1703 [inlined]
+do_call at /buildworker/worker/package_linux64/build/src/interpreter.c:115
+eval_value at /buildworker/worker/package_linux64/build/src/interpreter.c:204
+eval_stmt_value at /buildworker/worker/package_linux64/build/src/interpreter.c:155 [inlined]
+eval_body at /buildworker/worker/package_linux64/build/src/interpreter.c:562
+jl_interpret_toplevel_thunk at /buildworker/worker/package_linux64/build/src/interpreter.c:670
+jl_toplevel_eval_flex at /buildworker/worker/package_linux64/build/src/toplevel.c:877
+jl_toplevel_eval_flex at /buildworker/worker/package_linux64/build/src/toplevel.c:825
+jl_toplevel_eval_in at /buildworker/worker/package_linux64/build/src/toplevel.c:929
+eval at ./boot.jl:360 [inlined]
+include_string at ./loading.jl:1094
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+_include at ./loading.jl:1148
+include at ./Base.jl:386
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+exec_options at ./client.jl:285
+_start at ./client.jl:485
+jfptr__start_34289.clone_1 at /usr/local/julia/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1703 [inlined]
+true_main at /buildworker/worker/package_linux64/build/src/jlapi.c:560
+repl_entrypoint at /buildworker/worker/package_linux64/build/src/jlapi.c:702
+main at /buildworker/worker/package_linux64/build/cli/loader_exe.c:51
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /usr/local/julia/bin/julia (unknown line)
+unknown function (ip: (nil))
+Allocations: 526084742 (Pool: 524944521; Big: 1140221); GC: 1183795
+
+signal (15): Terminated
+in expression starting at /mnt/lustre/a2fs-work2/work/n02/n02/aleey/wavi/WAVIhpc/cases/PIG-Thwaites-Relax/cases/INVREL_006/run/driver.jl:186
+Starting to make the modelAbout to make simulationdetected niter0 > 0 (niter0 = 2000). Looking for pickup...
+Pickup successful
+The simulation is mademaking temporary checkpoint at timestep number 2100
+making permanent checkpoint at timestep number 2100
+outputting at timestep number 2100
+making temporary checkpoint at timestep number 2200
+making permanent checkpoint at timestep number 2200
+outputting at timestep number 2200
+making temporary checkpoint at timestep number 2300
+making permanent checkpoint at timestep number 2300
+outputting at timestep number 2300
+making temporary checkpoint at timestep number 2400
+making permanent checkpoint at timestep number 2400
+outputting at timestep number 2400
+making temporary checkpoint at timestep number 2500
+making permanent checkpoint at timestep number 2500
+outputting at timestep number 2500
+making temporary checkpoint at timestep number 2600
+making permanent checkpoint at timestep number 2600
+outputting at timestep number 2600
+making temporary checkpoint at timestep number 2700
+making permanent checkpoint at timestep number 2700
+outputting at timestep number 2700
+making temporary checkpoint at timestep number 2800
+making permanent checkpoint at timestep number 2800
+outputting at timestep number 2800
+making temporary checkpoint at timestep number 2900
+making permanent checkpoint at timestep number 2900
+outputting at timestep number 2900
+making temporary checkpoint at timestep number 3000
+making permanent checkpoint at timestep number 3000
+outputting at timestep number 3000
+making temporary checkpoint at timestep number 3100
+making permanent checkpoint at timestep number 3100
+outputting at timestep number 3100
+making temporary checkpoint at timestep number 3200
+making permanent checkpoint at timestep number 3200
+outputting at timestep number 3200
+making temporary checkpoint at timestep number 3300
+making permanent checkpoint at timestep number 3300
+outputting at timestep number 3300
+making temporary checkpoint at timestep number 3400
+making permanent checkpoint at timestep number 3400
+outputting at timestep number 3400
+making temporary checkpoint at timestep number 3500
+making permanent checkpoint at timestep number 3500
+outputting at timestep number 3500
+making temporary checkpoint at timestep number 3600
+making permanent checkpoint at timestep number 3600
+outputting at timestep number 3600
+making temporary checkpoint at timestep number 3700
+making permanent checkpoint at timestep number 3700
+outputting at timestep number 3700
+making temporary checkpoint at timestep number 3800
+making permanent checkpoint at timestep number 3800
+outputting at timestep number 3800
+cmpxchgi at /workspace/srcdir/libuv/src/unix/atomic-ops.h:34
+uv_spinlock_trylock at /workspace/srcdir/libuv/src/unix/spinlock.h:50
+uv_tty_reset_mode at /workspace/srcdir/libuv/src/unix/tty.c:383
+jl_exit at /buildworker/worker/package_linux64/build/src/jl_uv.c:631
+jl_exit_thread0_cb at /buildworker/worker/package_linux64/build/src/signals-unix.c:353
+unknown function (ip: (nil))
+unknown function (ip: (nil))
+Allocations: 526084742 (Pool: 524944521; Big: 1140221); GC: 1183795
+job chain: leave_time activated, exit code 124
+job chain did not finish
+job chain: pickup from permanent checkpoint
+niter0 = 3800
+Submitted batch job 1374191
