@@ -4,9 +4,9 @@
 clear
 
 % Parameters
-run_no = "008"; %run number
-res    = "2km";
-timestep = 1400; %which number timestep (use to compute time)
+run_no = "006"; %run number
+res    = "3km";
+timestep = 10000; %which number timestep (use to compute time)
 
 % get the grid
 [grid, ~] = get_grids(res, res);
