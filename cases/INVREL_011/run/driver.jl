@@ -127,7 +127,7 @@ model = Model(grid = grid,
 
 
 #timestepping parameters
-niter0 = 10000
+niter0 = 17600
 dt = 0.1
 #dt = 0.05
 end_time = 2000.0
