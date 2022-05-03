@@ -1,0 +1,120 @@
+received from SLURM HECACC=n02-NES010475,IMGNAME=julia_container_v1_6.img,JDEPOT=/work/n02/n02/aleey/wavi/WAVIhpc/.julia,JOBNO=009c,TIMEQSTART=1649860682
+
+signal (15): Terminated
+in expression starting at /mnt/lustre/a2fs-work2/work/n02/n02/aleey/wavi/WAVIhpc/cases/PIG-Thwaites-Relax/cases/INVREL_009c/run/driver.jl:186
+== at ./promotion.jl:410 [inlined]
+iterate at ./range.jl:674 [inlined]
+iterate at ./indices.jl:491 [inlined]
+iterate at ./multidimensional.jl:758 [inlined]
+macro expansion at ./cartesian.jl:65 [inlined]
+_unsafe_getindex! at ./multidimensional.jl:855 [inlined]
+_unsafe_getindex at ./multidimensional.jl:846
+_getindex at ./multidimensional.jl:832 [inlined]
+getindex at ./abstractarray.jl:1170 [inlined]
+update_wavelets! at /opt/julia/packages/WAVI/8QcGk/src/Wavelets/update_wavelets.jl:23
+update_model_wavelets! at /opt/julia/packages/WAVI/8QcGk/src/Models/update_state.jl:197 [inlined]
+update_state! at /opt/julia/packages/WAVI/8QcGk/src/Models/update_state.jl:19
+timestep! at /opt/julia/packages/WAVI/8QcGk/src/Simulations/run_simulation.jl:8 [inlined]
+run_simulation! at /opt/julia/packages/WAVI/8QcGk/src/Simulations/run_simulation.jl:64
+driver at /mnt/lustre/a2fs-work2/work/n02/n02/aleey/wavi/WAVIhpc/cases/PIG-Thwaites-Relax/cases/INVREL_009c/run/driver.jl:179
+unknown function (ip: 0x2b0b339b88bc)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1703 [inlined]
+do_call at /buildworker/worker/package_linux64/build/src/interpreter.c:115
+eval_value at /buildworker/worker/package_linux64/build/src/interpreter.c:204
+eval_stmt_value at /buildworker/worker/package_linux64/build/src/interpreter.c:155 [inlined]
+eval_body at /buildworker/worker/package_linux64/build/src/interpreter.c:562
+jl_interpret_toplevel_thunk at /buildworker/worker/package_linux64/build/src/interpreter.c:670
+jl_toplevel_eval_flex at /buildworker/worker/package_linux64/build/src/toplevel.c:877
+jl_toplevel_eval_flex at /buildworker/worker/package_linux64/build/src/toplevel.c:825
+jl_toplevel_eval_in at /buildworker/worker/package_linux64/build/src/toplevel.c:929
+eval at ./boot.jl:360 [inlined]
+include_string at ./loading.jl:1094
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+_include at ./loading.jl:1148
+include at ./Base.jl:386
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+exec_options at ./client.jl:285
+_start at ./client.jl:485
+jfptr__start_34289.clone_1 at /usr/local/julia/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2237 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2419
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1703 [inlined]
+true_main at /buildworker/worker/package_linux64/build/src/jlapi.c:560
+repl_entrypoint at /buildworker/worker/package_linux64/build/src/jlapi.c:702
+main at /buildworker/worker/package_linux64/build/cli/loader_exe.c:51
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /usr/local/julia/bin/julia (unknown line)
+unknown function (ip: (nil))
+Allocations: 211834330 (Pool: 211487615; Big: 346715); GC: 186567
+
+signal (15): Terminated
+in expression starting at /mnt/lustre/a2fs-work2/work/n02/n02/aleey/wavi/WAVIhpc/cases/PIG-Thwaites-Relax/cases/INVREL_009c/run/driver.jl:186
+Starting to make the modelAbout to make simulationThe simulation is mademaking temporary checkpoint at timestep number 20
+making permanent checkpoint at timestep number 20
+making temporary checkpoint at timestep number 40
+making permanent checkpoint at timestep number 40
+making temporary checkpoint at timestep number 60
+making permanent checkpoint at timestep number 60
+making temporary checkpoint at timestep number 80
+making permanent checkpoint at timestep number 80
+making temporary checkpoint at timestep number 100
+making permanent checkpoint at timestep number 100
+making temporary checkpoint at timestep number 120
+making permanent checkpoint at timestep number 120
+making temporary checkpoint at timestep number 140
+making permanent checkpoint at timestep number 140
+making temporary checkpoint at timestep number 160
+making permanent checkpoint at timestep number 160
+making temporary checkpoint at timestep number 180
+making permanent checkpoint at timestep number 180
+making temporary checkpoint at timestep number 200
+making permanent checkpoint at timestep number 200
+outputting at timestep number 200
+making temporary checkpoint at timestep number 220
+making permanent checkpoint at timestep number 220
+making temporary checkpoint at timestep number 240
+making permanent checkpoint at timestep number 240
+making temporary checkpoint at timestep number 260
+making permanent checkpoint at timestep number 260
+making temporary checkpoint at timestep number 280
+making permanent checkpoint at timestep number 280
+making temporary checkpoint at timestep number 300
+making permanent checkpoint at timestep number 300
+making temporary checkpoint at timestep number 320
+making permanent checkpoint at timestep number 320
+making temporary checkpoint at timestep number 340
+making permanent checkpoint at timestep number 340
+making temporary checkpoint at timestep number 360
+making permanent checkpoint at timestep number 360
+making temporary checkpoint at timestep number 380
+making permanent checkpoint at timestep number 380
+making temporary checkpoint at timestep number 400
+making permanent checkpoint at timestep number 400
+outputting at timestep number 400
+making temporary checkpoint at timestep number 420
+making permanent checkpoint at timestep number 420
+making temporary checkpoint at timestep number 440
+making permanent checkpoint at timestep number 440
+making temporary checkpoint at timestep number 460
+making permanent checkpoint at timestep number 460
+making temporary checkpoint at timestep number 480
+making permanent checkpoint at timestep number 480
+making temporary checkpoint at timestep number 500
+making permanent checkpoint at timestep number 500
+cmpxchgi at /workspace/srcdir/libuv/src/unix/atomic-ops.h:31
+unknown function (ip: 0x2b0abb8baf9f)
+uv_tty_reset_mode at /workspace/srcdir/libuv/src/unix/tty.c:383
+jl_exit at /buildworker/worker/package_linux64/build/src/jl_uv.c:631
+jl_exit_thread0_cb at /buildworker/worker/package_linux64/build/src/signals-unix.c:353
+unknown function (ip: (nil))
+unknown function (ip: (nil))
+Allocations: 211834330 (Pool: 211487615; Big: 346715); GC: 186567
+job chain: leave_time activated, exit code 124
+job chain did not finish
+job chain: pickup from permanent checkpoint
+niter0 = 500
+Submitted batch job 1429492
