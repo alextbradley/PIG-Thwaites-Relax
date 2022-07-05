@@ -2,17 +2,17 @@
 % Make a folder with the relaxed files at the specified time point. 
 %
 clear
-
+addpath('../utilities');
 % Parameters
-run_no = "006"; %run number
-res    = "3km";
-timestep = 10000; %which number timestep (use to compute time)
+run_no = "009c"; %run number
+res    = "2km";
+timestep = 20000; %which number timestep (use to compute time)
 
 % get the grid
 [grid, ~] = get_grids(res, res);
 
 % make directory
-folder_in = strcat("../cases/INVREL_", run_no, "/run/");
+folder_in = strcat("/data/icesheet_output/aleey/wavi/INVREL_", run_no, "/run/");
 fname_in  = strcat("outfile",  num2str(timestep,'%010.f'), ".mat");
 fname_in  = strcat(folder_in, fname_in);
 input     = load(fname_in);
@@ -24,7 +24,8 @@ end
 mkdir(folder_out);  %make the folder if it doesn't exist
 
 %copy all input files:
-folder = strcat("../cases/INVREL_", run_no, "/input/*.bin");
+%folder = strcat("../cases/INVREL_", run_no, "/input/*.bin");
+folder = strcat("/data/icesheet_output/aleey/wavi/INVREL_", run_no, "/input/*.bin");
 copyfile(folder, strcat(folder_out, "/."));
 
 %remove the thickness and velocity files if they exist
